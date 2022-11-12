@@ -1,5 +1,12 @@
+import { BrowserRouter } from "react-router-dom"
+import Router from "./router"
+
 const App: React.FC = () => {
-  return <h1>Olá mundo !</h1>
+  return (
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }
 
 export default App
