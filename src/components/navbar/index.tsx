@@ -1,4 +1,4 @@
-import { ChartBar, Gear } from "phosphor-react"
+import { ChartBar, Gear, Info } from "phosphor-react"
 import React from "react"
 import { NavLink } from "react-router-dom"
 import "twin.macro"
@@ -23,19 +23,37 @@ const NavBar: React.FC = () => {
                                 <span tw="ml-3">Configuração</span>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink to="/about" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-2 text-base font-normal rounded-lg text-white hover:bg-gray-700">
+                                <Info size={32} />
+                                <span tw="ml-3">Sobre Nós</span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </aside>
-            <footer tw="md:hidden fixed flex flex-row justify-around items-center left-0 bottom-0 w-full h-[7rem] bg-gray-800 ">
-                <NavLink to="/" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal  rounded-lg text-white hover:bg-gray-700">
-                    <ChartBar size={28} />
-                    <span tw="ml-3">Dashboard</span>
-                </NavLink>
-                <NavLink to="/admin" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal rounded-lg text-white hover:bg-gray-700">
-                    <Gear size={28} />
-                    <span tw="ml-3">Configuração</span>
-                </NavLink>
-            </footer>
+            <div tw="md:hidden fixed flex items-center bottom-0 h-[7rem] bg-gray-800 w-[100%] overflow-auto py-4 px-3">
+                <ul tw="space-x-2 flex flex-row mx-auto">
+                    <li>
+                        <NavLink to="/" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal rounded-lg text-white hover:bg-gray-700 min-w-[170px]">
+                            <ChartBar size={28} />
+                            <span tw="ml-3">Dashboard</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/admin" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal rounded-lg text-white hover:bg-gray-700 min-w-[170px]">
+                            <Gear size={28} />
+                            <span tw="ml-3">Configuração</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal rounded-lg text-white hover:bg-gray-700 min-w-[170px]">
+                            <Info size={28} />
+                            <span tw="ml-3">Sobre Nós</span>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
         </>
     )
 }

@@ -8,6 +8,7 @@ const Router: React.FC = () => {
             <Route path="/" element={<DefaultLayout />}>
                 <Route path="/" element={<>Home</>} />
                 <Route path="/admin" element={<>Configuração</>} />
+                <Route path="/about" element={<>Sobre nós</>} />
             </Route>
         </Routes>
     )
