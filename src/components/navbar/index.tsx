@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom"
 import "twin.macro"
 
 const NavBar: React.FC = () => {
-
-
     return (
         <>
             <aside tw="md:flex hidden flex-col justify-between w-64 h-[100vh] bg-gray-800 rounded-r-xl">
