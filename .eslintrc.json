@@ -1,0 +1,16 @@
+{
+	"extends": "@rocketseat/eslint-config/react",
+	"ignorePatterns": [
+		"src/@types"
+	],
+	"rules": {
+		"react/no-unknown-property": [
+			"error",
+			{
+				"ignore": [
+					"tw"
+				]
+			}
+		]
+	}
+}
