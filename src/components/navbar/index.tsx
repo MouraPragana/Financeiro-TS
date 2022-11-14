@@ -6,7 +6,7 @@ import "twin.macro"
 const NavBar: React.FC = () => {
     return (
         <>
-            <aside tw="md:flex hidden flex-col justify-between w-64 h-[100vh] bg-gray-800 rounded-r-xl">
+            <aside tw="md:flex hidden flex-col justify-between min-w-[14rem] min-h-[100vh] bg-gray-800 rounded-r-xl">
                 <div tw="overflow-y-auto py-4 px-3 rounded-r bg-gray-800">
                     <ul tw="space-y-2">
                         <li>
@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
                     </ul>
                 </div>
             </aside>
-            <div tw="md:hidden fixed flex items-center bottom-0 h-[7rem] bg-gray-800 w-[100%] overflow-auto py-4 px-3">
+            <div tw="md:hidden fixed flex items-center bottom-0 h-[5rem] bg-gray-800 w-[100%] overflow-auto py-4 px-3">
                 <ul tw="space-x-2 flex flex-row mx-auto">
                     <li>
                         <NavLink to="/" tw="[&.active]:bg-gray-600 cursor-pointer flex items-center p-4 text-base font-normal rounded-lg text-white hover:bg-gray-700 min-w-[170px]">
