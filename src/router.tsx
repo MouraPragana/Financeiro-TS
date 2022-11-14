@@ -1,6 +1,7 @@
 import React from "react"
+import { Route, Routes } from "react-router-dom"
 import DefaultLayout from "./layout/defaultLayout"
-import { Routes, Route } from "react-router-dom"
+import About from "./pages/about"
 
 const Router: React.FC = () => {
     return (
@@ -8,7 +9,7 @@ const Router: React.FC = () => {
             <Route path="/" element={<DefaultLayout />}>
                 <Route path="/" element={<>Home</>} />
                 <Route path="/admin" element={<>Configuração</>} />
-                <Route path="/about" element={<>Sobre nós</>} />
+                <Route path="/about" element={<About />} />
             </Route>
         </Routes>
     )
