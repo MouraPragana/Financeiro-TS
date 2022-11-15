@@ -19,11 +19,12 @@ const About: React.FC = () => {
 				Projeto Finanças Pessoais
 			</h1>
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify indent-8">
-				Este é um projeto estudo em React TS que traz a proposta de proporcionar
-				ao usuário uma boa visão de sua saúde financeira.
+				Este é um projeto estudo em React TS, desenvolvido somente por uma
+				pessoa, que traz a proposta de proporcionar ao usuário uma visão
+				abrangente de sua situação financeira.
 			</p>
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify indent-8">
-				Como podemos ver de acordo com a reportagem a seguir, clicando{' '}
+				Como podemos ver de acordo com a reportagem a seguir, clicando&nbsp;
 				<a
 					tw="text-blue-800 font-bold hover:underline"
 					href="https://www.estadao.com.br/economia/saude-financeira-brasileiros-piora-2022-febraban-npre/"
@@ -39,12 +40,15 @@ const About: React.FC = () => {
 			</p>
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify indent-8">
 				O primeiro passo para a liberdade financeira é ter sua reserva de
-				emergência montada. Algumas corretores e blogs sobre finanças dizem que
-				a reserva de emergência tem que ser composta de 6 meses do gasto mensal,
-				para pessoas CLTs, e de 12 meses do gasto mensal para pessoas não CLTs.
+				emergência montada. Algumas &nbsp;
+				<span tw="italic font-bold">corretoras</span> &nbsp; e &nbsp;
+				<span tw="italic font-bold">blogs</span> sobre finanças dizem que a
+				reserva de emergência tem que ser composta de 6 meses de gasto, para
+				pessoas CLTs, e de 12 meses do gasto para pessoas não CLTs.
 			</p>
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify mb-3 indent-8">
-				Caso você queira saber sobre reservas de emergência, você pode clicar{' '}
+				Caso você queira saber sobre reservas de emergência, você pode clicar
+				&nbsp;
 				<a
 					tw="text-blue-800 font-bold hover:underline"
 					href="https://warren.com.br/magazine/reserva-de-emergencia/"
@@ -53,13 +57,13 @@ const About: React.FC = () => {
 				>
 					aqui
 				</a>
-				&nbsp;para ser redirecionado para uma matéria sobre o assunto.
+				&nbsp; para ser redirecionado para uma matéria sobre o assunto.
 			</p>
 			<h2 tw="font-bold md:text-2xl text-[1rem]">Apoie-me</h2>
 			<p tw="md:text-base text-gray-900 text-justify text-[0.85rem] indent-8">
 				Caso você tenha gostado da iniciativa e decida me ajudar de alguma
-				maneira, você pode realizar uma doação com valor simbólico de 5 reais
-				através do pix abaixo.
+				maneira, você pode realizar uma doação, sem pretensão alguma, com valor
+				simbólico de 5 reais através do pix abaixo.
 			</p>
 			<div tw="mx-auto mb-[5.8rem]">
 				<GeraPix params={params} />
