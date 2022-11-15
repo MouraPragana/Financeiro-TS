@@ -63,7 +63,7 @@ const About: React.FC = () => {
 			<p tw="md:text-base text-gray-900 text-justify text-[0.85rem] indent-8">
 				Caso você tenha gostado da iniciativa e decida me ajudar de alguma
 				maneira, você pode realizar uma doação, sem pretensão alguma, com valor
-				simbólico de 5 reais através do pix abaixo.
+				simbólico de 5 reais através do pix pelo qrcode abaixo.
 			</p>
 			<div tw="mx-auto mb-[5.8rem]">
 				<GeraPix params={params} />
