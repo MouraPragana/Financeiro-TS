@@ -41,7 +41,7 @@ const About: React.FC = () => {
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify indent-8">
 				O primeiro passo para a liberdade financeira é ter sua reserva de
 				emergência montada. Algumas &nbsp;
-				<span tw="italic font-bold">corretoras</span> &nbsp; e &nbsp;
+				<span tw="italic font-bold">corretoras</span>&nbsp; e &nbsp;
 				<span tw="italic font-bold">blogs</span> sobre finanças dizem que a
 				reserva de emergência tem que ser composta de 6 meses de gasto, para
 				pessoas CLTs, e de 12 meses do gasto para pessoas não CLTs.
