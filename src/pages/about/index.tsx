@@ -47,8 +47,8 @@ const About: React.FC = () => {
 				pessoas CLTs, e de 12 meses do gasto para pessoas não CLTs.
 			</p>
 			<p tw="md:text-base text-[0.85rem] text-gray-900 text-justify mb-3 indent-8">
-				Caso você queira saber sobre reservas de emergência, você pode clicar
-				&nbsp;
+				Caso você queira saber sobre reservas de emergência, você pode
+				clicar&nbsp;
 				<a
 					tw="text-blue-800 font-bold hover:underline"
 					href="https://warren.com.br/magazine/reserva-de-emergencia/"
@@ -57,7 +57,7 @@ const About: React.FC = () => {
 				>
 					aqui
 				</a>
-				&nbsp; para ser redirecionado para uma matéria sobre o assunto.
+				&nbsp;para ser redirecionado para uma matéria sobre o assunto.
 			</p>
 			<h2 tw="font-bold md:text-2xl text-[1rem]">Apoie-me</h2>
 			<p tw="md:text-base text-gray-900 text-justify text-[0.85rem] indent-8">
