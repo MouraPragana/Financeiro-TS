@@ -15,11 +15,11 @@ const Settings: React.FC = () => {
 	const dataDeLancamentoString = format(dataLancamento, 'dd/MM/yyyy')
 
 	const schema = z.object({
-		descricaoGasto: z.string().min(1, { message: 'Required' }),
+		tituloGasto: z.string().min(1, { message: 'Required' }),
 	})
 
 	interface IForm {
-		descricaoGasto: string
+		tituloGasto: string
 	}
 
 	const { register, handleSubmit } = useForm<IForm>({
@@ -33,6 +33,10 @@ const Settings: React.FC = () => {
 		}
 	}
 
+	const onKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+		e.preventDefault()
+	}
+
 	return (
 		<div tw="flex flex-col px-3 mx-5 py-4 w-[750px] gap-2">
 			<h1 tw="md:text-2xl text-[1rem] font-bold mb-3 text-gray-900 text-justify">
@@ -43,25 +47,30 @@ const Settings: React.FC = () => {
 				ganhos, podendo classificar os lançamentos.
 			</p>
 			<form
-				tw="flex flex-col px-4 py-3 bg-blue-500 h-full w-full"
+				tw="flex flex-col px-4 py-3 space-y-5 h-full w-full"
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<LocalizationProvider dateAdapter={AdapterDateFns}>
-					<DesktopDatePicker
-						label="Data da despessa"
-						inputFormat="dd/MM/yyyy"
-						value={dataLancamento}
-						onChange={(newValue) => {
-							newValue && setDataLancamento(newValue)
-						}}
-						renderInput={(params) => <TextField {...params} />}
-					/>
-				</LocalizationProvider>
+				<div>
+					<LocalizationProvider dateAdapter={AdapterDateFns}>
+						<DesktopDatePicker
+							tw="w-1/2"
+							label="Selecione a Data do Lançamento"
+							inputFormat="dd/MM/yyyy"
+							value={dataLancamento}
+							onChange={(newValue) => {
+								newValue && setDataLancamento(newValue)
+							}}
+							renderInput={(params) => (
+								<TextField {...params} onKeyDown={onKeyDown} />
+							)}
+						/>
+					</LocalizationProvider>
+				</div>
 				<TextField
 					id="outlined-basic"
-					label="Descrição do Gasto"
+					label="Título do Gasto"
 					variant="outlined"
-					{...register('descricaoGasto')}
+					{...register('tituloGasto')}
 				/>
 				<button type="submit">Inserir</button>
 			</form>
