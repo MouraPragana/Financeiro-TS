@@ -18,7 +18,7 @@ import "twin.macro";
 import * as z from "zod";
 import { GrCurrency } from "react-icons/gr";
 
-const Settings: React.FC = () => {
+const Financial: React.FC = () => {
   const [dataLancamento, setDataLancamento] = useState<Date>(new Date());
   const dataDeLancamentoValida = isValid(dataLancamento);
   const dataDeLancamentoString = format(dataLancamento, "dd/MM/yyyy");
@@ -57,7 +57,7 @@ const Settings: React.FC = () => {
   return (
     <div tw="flex flex-col px-3 mx-5 py-4 w-[750px]">
       <h1 tw="md:text-2xl text-[1rem] font-bold mb-3 text-gray-900 text-justify">
-        Configurações
+        Lançamentos
       </h1>
       <p tw="md:text-base text-[0.85rem] text-gray-900 text-justify indent-8 my-2">
         Aqui você fará o cadastro de seus lançamentos financeiros, como ganhos e
@@ -166,4 +166,4 @@ const Settings: React.FC = () => {
   );
 };
 
-export default Settings;
+export default Financial;
