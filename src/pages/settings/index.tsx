@@ -17,11 +17,14 @@ import { useForm } from "react-hook-form";
 import "twin.macro";
 import * as z from "zod";
 import { GrCurrency } from "react-icons/gr";
+import { useFinanceiroContext } from "../../context/financeiroContext";
 
 const Financial: React.FC = () => {
   const [dataLancamento, setDataLancamento] = useState<Date>(new Date());
   const dataDeLancamentoValida = isValid(dataLancamento);
   const dataDeLancamentoString = format(dataLancamento, "dd/MM/yyyy");
+
+  const { lancamentos, handleAddNewLancamento } = useFinanceiroContext();
 
   const schema = z.object({
     tituloLancamento: z.string().min(1, { message: "Titulo é necessário." }),
@@ -44,10 +47,18 @@ const Financial: React.FC = () => {
   });
 
   const onSubmit = (data: IForm) => {
-    if (dataDeLancamentoValida) {
-      console.log(data);
-      console.log(dataDeLancamentoString);
-    }
+    // if (dataDeLancamentoValida) {
+    //   console.log(data);
+    //   console.log(dataDeLancamentoString);
+    // }
+    handleAddNewLancamento({
+      classificacao: "alimentacao",
+      dataLancamento: "20/11/2022",
+      descricaoLancamento: "teste",
+      tipo: "despesa",
+      tituloLancamento: "teste",
+      valorLancamento: 5,
+    });
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
@@ -56,6 +67,7 @@ const Financial: React.FC = () => {
 
   return (
     <div tw="flex flex-col px-3 mx-5 py-4 w-[750px]">
+      {lancamentos[0].tituloLancamento}
       <h1 tw="md:text-2xl text-[1rem] font-bold mb-3 text-gray-900 text-justify">
         Lançamentos
       </h1>
