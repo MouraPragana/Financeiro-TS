@@ -15,32 +15,29 @@ import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { GrCurrency } from "react-icons/gr";
 import "twin.macro";
+import { useFinanceiroContext } from "../../../../context/financeiroContext";
 
 const FormComponent: React.FC = () => {
   const { register } = useFormContext();
-
-  const [tipo, setTipo] = useState<"default" | "ganho" | "despesa">("default");
-  const [classificacao, setClassificacao] = useState<
-    | "default"
-    | "investimento"
-    | "salario"
-    | "rendaExtra"
-    | "lazer"
-    | "transporte"
-    | "alimentacao"
-    | "conta"
-  >("default");
+  const {
+    tipoFormulario,
+    classificacaoFormulario,
+    handleAltTipoFormulario,
+    handleAltClassificacaoFormulario,
+  } = useFinanceiroContext();
 
   const [dataLancamento, setDataLancamento] = useState<Date>(new Date());
   const dataDeLancamentoValida = isValid(dataLancamento);
   const dataDeLancamentoString = format(dataLancamento, "dd/MM/yyyy");
 
   const handleChangeTipo = (event: SelectChangeEvent) => {
-    setTipo(event.target.value as "default" | "ganho" | "despesa");
+    handleAltTipoFormulario(
+      event.target.value as "default" | "ganho" | "despesa"
+    );
   };
 
   const handleChangeClassificacao = (event: SelectChangeEvent) => {
-    setClassificacao(
+    handleAltClassificacaoFormulario(
       event.target.value as
         | "default"
         | "investimento"
@@ -65,6 +62,7 @@ const FormComponent: React.FC = () => {
           label="Data do lançamento"
           inputFormat="dd/MM/yyyy"
           value={dataLancamento}
+          {...register("dataLancamento")}
           onChange={(newValue) => {
             newValue && setDataLancamento(newValue);
           }}
@@ -98,7 +96,8 @@ const FormComponent: React.FC = () => {
           <Select
             labelId="tipo"
             id="tipo"
-            value={tipo}
+            value={tipoFormulario}
+            {...register("tipoFormulario")}
             label="Tipo"
             onChange={handleChangeTipo}
           >
@@ -113,7 +112,8 @@ const FormComponent: React.FC = () => {
           <Select
             labelId="classificacao"
             id="classificacao"
-            value={classificacao}
+            value={classificacaoFormulario}
+            {...register("classificacaoFormulario")}
             label="Classificação"
             onChange={handleChangeClassificacao}
           >
@@ -150,7 +150,7 @@ const FormComponent: React.FC = () => {
         }}
       />
 
-      <Button variant="contained" type="submit" sx={{ py: 1.45 }}>
+      <Button variant="contained" type="submit" sx={{ py: 1.45, zIndex: -1 }}>
         Cadastrar lançamento
       </Button>
     </>

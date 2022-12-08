@@ -10,6 +10,7 @@ const Financial: React.FC = () => {
   const { lancamentos, handleAddNewLancamento } = useFinanceiroContext();
 
   const schema = z.object({
+    dataLancamento: z.string(),
     tituloLancamento: z.string().min(1, { message: "Titulo é necessário." }),
     descricaoLancamento: z
       .string()
@@ -17,6 +18,8 @@ const Financial: React.FC = () => {
     valorLancamento: z
       .number()
       .min(0.01, { message: "Valor mínimo é de 1 centavo." }),
+    tipoFormulario: z.string(),
+    classificacaoFormulario: z.string(),
   });
 
   interface IForm {
@@ -52,7 +55,7 @@ const Financial: React.FC = () => {
   };
 
   return (
-    <div tw="flex flex-col px-3 mx-5 py-4 w-[750px]">
+    <div tw="flex flex-col px-3 mx-5 py-4 w-[750px] mb-[92.8px]">
       <h1 tw="md:text-2xl text-[1rem] font-bold mb-3 text-gray-900 text-justify">
         Lançamentos
       </h1>
