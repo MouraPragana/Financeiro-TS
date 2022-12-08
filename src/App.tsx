@@ -1,13 +1,16 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import Router from './router'
+import React, { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { LoadingComponent } from "./components/loading";
+import Router from "./router";
 
 const App: React.FC = () => {
-	return (
-		<BrowserRouter>
-			<Router />
-		</BrowserRouter>
-	)
-}
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<LoadingComponent />}>
+        <Router />
+      </Suspense>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
