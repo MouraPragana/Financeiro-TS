@@ -39,7 +39,7 @@ const NavBar: React.FC = () => {
           </ul>
         </div>
       </aside>
-      <div tw="md:hidden fixed flex items-center bottom-0 h-[5.8rem] bg-gray-800 w-[100%] overflow-auto py-4 px-3">
+      <div tw="md:hidden fixed flex items-center bottom-0 h-[5.8rem] bg-gray-800 w-[100%] overflow-auto py-4 px-3 z-10">
         <ul tw="space-x-2 flex flex-row mx-auto">
           <li>
             <NavLink

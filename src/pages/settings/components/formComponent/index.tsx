@@ -150,7 +150,7 @@ const FormComponent: React.FC = () => {
         }}
       />
 
-      <Button variant="contained" type="submit" sx={{ py: 1.45, zIndex: -1 }}>
+      <Button variant="contained" type="submit" sx={{ py: 1.45 }}>
         Cadastrar lançamento
       </Button>
     </>
