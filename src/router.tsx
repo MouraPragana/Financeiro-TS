@@ -1,8 +1,6 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import DefaultLayout from "./layout/defaultLayout";
-import About from "./pages/about";
-import Financial from "./pages/settings";
+import { About, DefaultLayout, Financial } from "./pages";
 
 const Router: React.FC = () => {
   return (
