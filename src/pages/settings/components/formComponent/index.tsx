@@ -5,6 +5,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
 } from "@mui/material";
 import { DesktopDatePicker, LocalizationProvider } from "@mui/x-date-pickers";
@@ -18,9 +19,39 @@ import "twin.macro";
 const FormComponent: React.FC = () => {
   const { register } = useFormContext();
 
+  const [tipo, setTipo] = useState<"default" | "ganho" | "despesa">("default");
+  const [classificacao, setClassificacao] = useState<
+    | "default"
+    | "investimento"
+    | "salario"
+    | "rendaExtra"
+    | "lazer"
+    | "transporte"
+    | "alimentacao"
+    | "conta"
+  >("default");
+
   const [dataLancamento, setDataLancamento] = useState<Date>(new Date());
   const dataDeLancamentoValida = isValid(dataLancamento);
   const dataDeLancamentoString = format(dataLancamento, "dd/MM/yyyy");
+
+  const handleChangeTipo = (event: SelectChangeEvent) => {
+    setTipo(event.target.value as "default" | "ganho" | "despesa");
+  };
+
+  const handleChangeClassificacao = (event: SelectChangeEvent) => {
+    setClassificacao(
+      event.target.value as
+        | "default"
+        | "investimento"
+        | "salario"
+        | "rendaExtra"
+        | "lazer"
+        | "transporte"
+        | "alimentacao"
+        | "conta"
+    );
+  };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     e.preventDefault();
@@ -67,9 +98,9 @@ const FormComponent: React.FC = () => {
           <Select
             labelId="tipo"
             id="tipo"
-            value={"default"}
+            value={tipo}
             label="Tipo"
-            // onChange={handleChange}
+            onChange={handleChangeTipo}
           >
             <MenuItem value={"default"}>Selecione uma opção</MenuItem>
             <MenuItem value={"ganho"}>Ganho</MenuItem>
@@ -82,9 +113,9 @@ const FormComponent: React.FC = () => {
           <Select
             labelId="classificacao"
             id="classificacao"
-            value={"default"}
+            value={classificacao}
             label="Classificação"
-            // onChange={handleChange}
+            onChange={handleChangeClassificacao}
           >
             <MenuItem value={"default"}>Selecione uma opção</MenuItem>
             <MenuItem value={"investimento"}>Investimento</MenuItem>
