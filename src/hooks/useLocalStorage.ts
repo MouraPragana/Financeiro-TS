@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useLocalStorate = (key: string, defaultValue: string | string[]) => {
+const useLocalStorage = (key: string, defaultValue: string | string[]) => {
   const [value, setValue] = useState(() => {
     const currentValue = JSON.parse(
       localStorage.getItem(key) || JSON.stringify(defaultValue)
@@ -15,4 +15,4 @@ const useLocalStorate = (key: string, defaultValue: string | string[]) => {
   return [value, setValue];
 };
 
-export { useLocalStorate };
+export { useLocalStorage };
