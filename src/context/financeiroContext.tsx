@@ -1,6 +1,13 @@
-import { createContext, ReactNode, useContext, useReducer } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 import { addNewLancamento, ILancamento } from "../reducers/actions";
 import { FinanceiroReducer } from "../reducers/reducer";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 interface IFinanceiroContextProvider {
   lancamentos: ILancamento[];
@@ -16,20 +23,20 @@ const FinanceiroContext = createContext({} as IFinanceiroContextProvider);
 export const FinanceiroContextProvider = ({
   children,
 }: IFinanceiroContextProviderProps) => {
+  const [localStorageLancamentos, setLocalStorageLancamentos] = useLocalStorage(
+    "@FinanceiroTS",
+    []
+  );
+
   const [financeiroState, dispatch] = useReducer(FinanceiroReducer, {
-    lancamentos: [
-      {
-        classificacao: "alimentacao",
-        dataLancamento: "20/11/2022",
-        descricaoLancamento: "teste",
-        tipo: "despesa",
-        tituloLancamento: "teste",
-        valorLancamento: 5,
-      },
-    ],
+    lancamentos: localStorageLancamentos,
   });
 
   const { lancamentos } = financeiroState;
+
+  useEffect(() => {
+    setLocalStorageLancamentos(lancamentos);
+  }, [lancamentos]);
 
   const handleAddNewLancamento = (newLancamento: ILancamento) => {
     dispatch(addNewLancamento(newLancamento));
